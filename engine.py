@@ -468,7 +468,7 @@ class GameState(ndb.Model):
                 if challenger.one_card():
                     return _join_messages(
                         [redeal_text, self.lose_challenge(
-                            challenger, challenger.live_cards()[0])])
+                            challenger, challenger.live_card_names()[0])])
                 else:
                     return _join_messages([redeal_text, flip_card_text])
             else:
