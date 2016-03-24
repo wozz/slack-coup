@@ -339,7 +339,7 @@ class GameState(ndb.Model):
                 and self.status == 'BLOCK_CHALLENGE_LOSS_RESOLVED'):
             target = self.get_player(self.last_action_target)
             if target.one_card():
-                return self._flip_card(target, target.live_cards()[0])
+                return _join_messages([self._flip_card(target, target.live_cards()[0]), self._flush_action()])
         if self.last_action in CARD_LOSS_ACTIONS:
             return "If you're ready to lose a card, `/coup lose <card>`."
         elif self.last_action == 'exchange':
