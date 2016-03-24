@@ -64,9 +64,9 @@ def run_command(game, game_id, username, args):
         }
 
     # TODO(benkraft): turn this mode off when testing is done.  (Or don't.)
-    if len(args) >= 3 and args[-2] == 'as':
-        username = args[-1]
-        args = args[:-2]
+    # if len(args) >= 3 and args[-2] == 'as':
+    #     username = args[-1]
+    #     args = args[:-2]
     player = game.get_player(username)
     # This can take a player, but doesn't need one.
     if args[0] in ('view', 'board'):
