@@ -375,6 +375,8 @@ class GameState(ndb.Model):
     def pose_challenge(self, challenger):
         # TODO(benkraft): make them say what to challenge, to prevent races?
         # TODO(benkraft): don't let you challenge yourself
+        if challenger.is_out():
+            raise Misplay("You can't challenge after you've been eliminated")
         if self.status == 'ACTED' and self.last_action in ACTION_CARDS:
             self.status = 'CHALLENGED'
             verb = self.last_action

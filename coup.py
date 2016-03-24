@@ -109,7 +109,7 @@ def run_command(game, game_id, username, args):
             raise engine.Misplay("To complete an exchange, "
                                  "`/coup return <card1> <card2>`.")
         return {
-            'response_type': 'in_channel',
+            'response_type': 'ephemeral',
             'text': game.return_cards(player, args[1], args[2]),
         }
     elif args[0] in ('challenge', 'bullshit'):
